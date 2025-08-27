@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "stoppy"
+version = "0.1.0"
+description = "keep teams connected"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "mouse>=0.7.1",
+]
+
+[project.scripts]
+stoppy = "stoppy.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/jeffangel/stoppy"
+
+[tool.hatch.build]
+packages = ["stoppy"]
+include = ["stoppy/**.py"]
+
+[dependency-groups]
+dev = [
+    "hatch>=1.14.1",
+    "hatchling>=1.27.0",
+]

@@ -1,4 +1,4 @@
-# Installing Stoopy
+# Installing Stoppy
 
 To install the stoppy package, a virtual Python environment is recommended; There are different alternatives for Python 3, I recommend pipenv.
 
@@ -11,4 +11,4 @@ Then you will need to run "pipenv install" to install all the necessary packages
 
 Finally, run "pip install --upgrade".
 
-To start the program, simply run "stoopy" from the terminal (within the virtual environment).
+To start the program, simply run "stoppy" from the terminal (within the virtual environment).

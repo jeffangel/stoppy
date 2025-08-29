@@ -1,16 +1,21 @@
 import sys
 
-from stoppy.mybreak import MyBreak
+from stoppy.legacy import Automovement as Automovement_legacy
+from stoppy.modern import Automovement as Automovement_modern
 
 def main(args=None):
     
     if args is None:
         args = sys.argv[1:]
-    
-    mybreak = MyBreak(
-        absolute_ref=True
-    )
-    mybreak.run()
+
+    if args[0] == "legacy":
+        automovement = Automovement_legacy(
+            absolute_ref=True
+        )
+    else:
+        automovement = Automovement_modern()
+
+    automovement.run()
 
 if __name__ == "__main__":
     sys.exit(main())

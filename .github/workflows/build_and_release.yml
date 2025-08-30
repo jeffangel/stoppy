@@ -1,0 +1,39 @@
+name: CI & CD whl automatically
+
+on:
+  push:
+    branches: ["master"]
+
+jobs:
+  build-and-release:
+    runs-on: ubunty-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install Hatch
+        uses: pip install hatch
+      - name: Build the package
+        run: hatch build
+      - name: Get version from pyproject.toml
+        id: get_version
+        run: |
+          VERSION=$(grep '^version =' pyproject.toml | sed -E "s/version = \"(.*)\"/\1/")
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v${{ steps.get_version.outputs.version }}
+          name: Release v${{ steps.get_version.outputs.version }}
+          files: dist/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+
+
+
+
+

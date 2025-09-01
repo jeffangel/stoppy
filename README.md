@@ -1,14 +1,44 @@
-# Installing Stoppy
+# Stoppy
 
-To install the stoppy package, a virtual Python environment is recommended; There are different alternatives for Python 3, I recommend pipenv.
+**Mantén tu estado en Microsoft Teams (u otras apps similares) siempre en activo 🟢 evitando que se ponga en amarillo 🟡 (inactivo).**  
+Funciona en **Windows, Linux y macOS**, ya que utiliza [`pynput`](https://pypi.org/project/pynput/) para simular actividad en el sistema operativo.
 
-To install pipenv, you can run "pip install pipenv"
+[![GitHub Release](https://img.shields.io/github/v/release/jeffangel/stoppy?style=flat-square)](https://github.com/jeffangel/stoppy/releases/latest)
 
-After cloning this repository, place it in the main folder and run "pipenv shell". This will create the virtual environment.
+---
+
+## 🚀 Instalación (desde GitHub Release)
+
+Instala `stoppy` directamente desde la última release publicada en GitHub:
+
+```bash
+pip install https://github.com/jeffangel/stoppy/releases/download/v0.1.0/stoppy-0.1.0-py3-none-any.whl
+```
+
+### 🐍 Recomendación: usa un entorno virtual
+
+Para evitar conflictos con otras dependencias, se recomienda instalar stoppy dentro de un entorno virtual.
+
+#### Python -m venv (estándar)
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate   # En Linux / macOS
+.venv\Scripts\activate      # En Windows PowerShell
+
+pip install --upgrade pip
+pip install https://github.com/jeffangel/stoppy/releases/download/v0.1.0/stoppy-0.1.0-py3-none-any.whl
+```
 
 
-Then you will need to run "pipenv install" to install all the necessary packages.
+## ▶️ Uso
 
-Finally, run "pip install --upgrade".
+Una vez instalado, ejecuta:
 
-To start the program, simply run "stoppy" from the terminal (within the virtual environment).
+```bash
+stoppy modern   # Usa pynput version
+```
+
+Esto simulará actividad en tu sistema (mediante pynput), evitando que Teams y aplicaciones similares cambien tu estado a inactivo.
+
+Para detener la ejecución presiona "clic derecho" o "ctrl + c"
